@@ -47,8 +47,15 @@ echo "For example: activate telnet ..."
 echo "==========================================="
 sleep 5
 
+echo "==========================================="
+echo "Setting up cronjob to start at launch and setting up web server to exfiltrate logs"
+echo "==========================================="
+sleep 5
+
+cp /home/server.py /home/cowrie/var/log/cowrie/server.py
 crontab -l > mycron
 echo "@reboot sudo -u cowrie /home/cowrie/bin/cowrie start" >> mycron
+echo "@reboot sudo -u cowrie nohup python3 /home/cowrie/var/log/cowrie/server.py &" >> mycron
 crontab mycron
 rm mycron
 crontab -l
