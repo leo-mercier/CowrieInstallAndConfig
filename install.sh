@@ -24,7 +24,8 @@ sleep 5
 
 git clone http://github.com/cowrie/cowrie
 chown -R cowrie cowrie/
-cd cowrie
+mv cowrie/ ../cowrie
+cd /home/cowrie
 chmod +x bin/cowrie
 pwd
 echo "==========================================="
