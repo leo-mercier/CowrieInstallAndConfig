@@ -25,6 +25,7 @@ sleep 5
 git clone http://github.com/cowrie/cowrie
 chown -R cowrie cowrie/
 mv cowrie/ ../cowrie
+mv server.py ../server.py
 cd /home/cowrie
 chmod +x bin/cowrie
 pwd
