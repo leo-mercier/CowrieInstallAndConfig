@@ -57,7 +57,7 @@ sleep 5
 cp /home/server.py /home/cowrie/var/log/server.py
 crontab -l > mycron
 echo "@reboot sudo -u cowrie /home/cowrie/bin/cowrie start" >> mycron
-echo "@reboot sudo -u cowrie nohup python3 /home/cowrie/var/log/cowrie/server.py &" >> mycron
+echo "@reboot sudo -u cowrie nohup python3 /home/cowrie/var/log/server.py &" >> mycron
 crontab mycron
 rm mycron
 crontab -l
