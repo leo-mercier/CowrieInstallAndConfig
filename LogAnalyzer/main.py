@@ -37,7 +37,7 @@ def ExtactAndWriteNewFormat():
 
 if __name__ == '__main__':
         #Set a timer
-        t1 = time.time()
+        ProcessTimer = time.time()
         # Initiate the logging file
         logging.basicConfig(filename='LogAnalyzer.log',
                             level=logging.ERROR)
@@ -51,7 +51,7 @@ if __name__ == '__main__':
         Expeditor.MispOuput.sendToMisp();
 
         # calculate the process time
-        executionTime = (time.time() - t1)
+        executionTime = (time.time() - ProcessTimer)
         print('Execution time in seconds: ' + str(executionTime))
 
 
