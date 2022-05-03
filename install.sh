@@ -54,10 +54,10 @@ echo "Setting up cronjob to start at launch and setting up web server to exfiltr
 echo "==========================================="
 sleep 5
 
-cp /home/server.py /home/cowrie/var/log/server.py
+mv /home/server.py /home/cowrie/var/log/cowrie/server.py
 crontab -l > mycron
 echo "@reboot sudo -u cowrie /home/cowrie/bin/cowrie start" >> mycron
-echo "@reboot sudo -u cowrie nohup python3 /home/cowrie/var/log/server.py &" >> mycron
+echo "@reboot cd /home/cowrie/var/log/cowrie; nohup python3 server.py &" >> mycron
 crontab mycron
 rm mycron
 crontab -l
