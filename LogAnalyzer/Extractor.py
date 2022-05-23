@@ -13,10 +13,12 @@ class Extractor:
         try:
             with open('logs/cowrie.json', 'r') as f:
                 data = f.readlines()
+                print(data)
                 for l in data:
+                    l.replace(" ", "")
                     l = json.loads(l)
                     if l['src_ip'] not in self.CowrieIPs:
-                        self.CowrieIPs.append(l['src_ip'])
+                            self.CowrieIPs.append(l['src_ip'])
                 for ip in self.CowrieIPs:
                     self.cowrieSessions[ip] = {}
                     for l in data:
@@ -32,9 +34,9 @@ class Extractor:
             return self.cowrieSessions
         except Exception as e:
             msg = "[!] Error while retreiving data from cowrie.json logging file"
-            err = "[!] Details : " + e
-            print(msg);
-            print(err);
+            err = "[!] Details : " + str(e)
+            print(msg)
+            print(err)
 
     # ============================================================================
     # Code suivant est la possibilite d'ajouter un honeypot web nomme tanner/snare

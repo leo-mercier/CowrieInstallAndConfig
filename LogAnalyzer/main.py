@@ -24,11 +24,11 @@ def ExtactAndWriteNewFormat():
                 data = an.ExtractCowrie()
                 print(" [+] Writing results to cowrie result file (resultsCowrie.json)")
                 with open('resultsCowrie.json', 'w') as res:
-                        json_formated = json.dumps(data, indent=4)
+                        json_formated = json.dumps(data, indent=3)
                         res.writelines(json_formated)
         except Exception as e:
                 msg = "[!] Error while extracting cowrie.json file data or writing results to resultsCowrie.json"
-                err = "[!] Details : " + e
+                err = "[!] Details : " + str(e)
                 logging.ERROR(msg)
                 logging.ERROR(err)
                 print(msg)
